@@ -4049,11 +4049,10 @@ struct AnalysisDileptonTrack {
           // compute needed quantities
           VarManager::FillDileptonHadron(dilepton, track, fValuesHadron);
           VarManager::FillDileptonTrackVertexing<TCandidateType, TEventFillMap, TTrackFillMap>(event, lepton1, lepton2, track, fValuesHadron);
-          
-           
+
           auto trackMC = track.reducedMCTrack();
 
-           // for the energy correlator analysis
+          // for the energy correlator analysis
           auto motherParticle = lepton1MC.template mothers_first_as<ReducedMCTracks>();
           VarManager::FillEnergyCorrelator(dilepton, track, fValuesHadron, fConfigApplyMassEC);
           VarManager::FillEnergyCorrelatorsMCUnfolding<VarManager::kJpsiHadronMass>(dilepton, track, motherParticle, trackMC, fValuesHadron);
